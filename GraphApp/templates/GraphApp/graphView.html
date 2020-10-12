@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+
+
+{% block content %}
+
+<body>
+
+   <p>Graph 1 of: y = {{ x_coef }}x<sup>{{ x_exp }}</sup> + {{ c_const }} </p>
+   <p>Graph 2 of: y = {{ x2_coef }}x<sup>{{ x2_exp }}</sup> + {{ c2_const }} </p>
+
+<!--   autoescape on by default-->
+  {% autoescape off %}
+  {{ plot_div }}
+  {% endautoescape %}
+
+
+</body>
+
+{% endblock %}
