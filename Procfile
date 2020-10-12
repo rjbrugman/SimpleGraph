@@ -1,1 +1,1 @@
-web: gunicorn GraphApp.wsgi --log-file -
+web: gunicorn SimpleGraph.wsgi --log-file -
