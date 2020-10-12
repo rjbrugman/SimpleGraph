@@ -25,7 +25,8 @@ SECRET_KEY = '*2lj)1l@s!if+#)v)^k0sus_nop+f#0*eoh!8r^h!18fj7e*e2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Set hosts to allow any app on Heroku and the local testing URL
+ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -41,7 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware
+    'django.middleware.security.SecurityMiddleware,
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
