@@ -10,20 +10,31 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
+# commented out RJB - prob with os - not same as previous apps settings.py file
+# from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
+# now RJB
+import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*2lj)1l@s!if+#)v)^k0sus_nop+f#0*eoh!8r^h!18fj7e*e2'
+# SECRET_KEY = '*2lj)1l@s!if+#)v)^k0sus_nop+f#0*eoh!8r^h!18fj7e*e2'
+
+import os
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '*2lj)1l@s!if+#)v)^k0sus_nop+f#0*eoh!8r^h!18fj7e*e2')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 # Set hosts to allow any app on Heroku and the local testing URL
 ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
